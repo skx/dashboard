@@ -41,6 +41,15 @@ running on the localhost.
     perl submit.pl "I like cake."
 
 
+Viewing Events
+--------------
+
+There is a simple CGI script supplied which would make a good
+starting point for a more dynamic event-viewer.  It could be invoked
+via jQuery as-is, but probably needs more work.
+
+
+
 Problems
 --------
 
