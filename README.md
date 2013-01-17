@@ -52,3 +52,16 @@ Here is some simple perl code for posting a message:
 
 That will try to send the message to `127.0.0.1:4433`, and should be
 an excellent starting point for you.
+
+Problems
+--------
+
+Plus report an issue via the github repository:
+
+* https://github.com/skx/dashboard
+
+
+Author
+------
+
+Steve Kemp <steve@steve.org.uk>
