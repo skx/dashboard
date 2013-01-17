@@ -1,6 +1,0 @@
-#!/bin/sh
-#
-#  Run it
-#
-
-exec /opt/node/bin/node dashboard.js 2>&1 > output.log
