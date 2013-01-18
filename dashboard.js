@@ -1,5 +1,5 @@
 /**
- * Trivial UDP-based "dahsboard server" written in node.js, using
+ * Trivial UDP-based "dashboard server" written in node.js, using
  * redis for storage.
  *
  * Remote clients will send UDP-packages to :4433, which will be stored
