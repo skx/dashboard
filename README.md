@@ -59,6 +59,13 @@ Plus report an issue via the github repository:
 * https://github.com/skx/dashboard
 
 
+
+License
+-------
+
+BSD 3-clause.
+
+
 Author
 ------
 
