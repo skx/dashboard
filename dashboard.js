@@ -1,19 +1,30 @@
 /**
- * Trivial UDP-based "dahsboard server" written in node.js, and using
+ * Trivial UDP-based "dahsboard server" written in node.js, using
  * redis for storage.
  *
- * Remote clients will send UPD-packages to :4433, which will be stored
- * in a list.  Each new entry may be retrieved, in order of submission,
- * and the list is capped at 1000 entries - new additions will push
- * older ones out of the way.
+ * Remote clients will send UDP-packages to :4433, which will be stored
+ * in a list.
+ *
+ * Each new entry may be retrieved, in order of submission, and the
+ * list is capped at 1000 entries - new additions will push older ones
+ * out of the way.
  *
  * Steve
  * --
  */
 
 
+/**
+ * Standard UDP library, supplied with node.js
+ */
 var dgram = require("dgram");
+
+
+/**
+ * Redis client library, located in this repository.
+ */
 var redis = require("./node_redis/index.js");
+
 
 
 /**
@@ -24,6 +35,7 @@ var redis = redis.createClient();
 redis.on("error", function (err) {
     console.log("Error talking to redis " + err);
 });
+
 
 
 /**
@@ -57,6 +69,7 @@ server.on("message", function (msg, rinfo) {
 });
 
 
+
 /**
  * When we start up show a mesage.
  */
@@ -64,6 +77,7 @@ server.on("listening", function () {
     var address = server.address();
     console.log("server listening " + address.address + ":" + address.port);
 });
+
 
 
 /**
