@@ -2,12 +2,15 @@
  * Trivial UDP-based "dashboard server" written in node.js, using
  * redis for storage.
  *
- * Remote clients will send UDP-packages to :4433, which will be stored
- * in a list.
+ * Remote clients will send UDP-packets to :4433, they will then be
+ * prepended with the source IP, the date, and then stored in a redis
+ * list.
  *
- * Each new entry may be retrieved, in order of submission, and the
- * list is capped at 1000 entries - new additions will push older ones
- * out of the way.
+ * Each entry may later be retrieved, in order of submission, and then
+ * displayed to present a simple dashboard.
+ *
+ * NOTE: The list is capped at 1000 entries, and this cap is applied
+ *       at submission-time.
  *
  * Steve
  * --
