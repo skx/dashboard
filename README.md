@@ -42,13 +42,23 @@ running on the localhost.
 Viewing Events
 --------------
 
-There is a simple CGI script supplied which would make a good
-starting point for a more dynamic event-viewer.  It could be invoked
-via jQuery as-is, but probably needs more work.
+There is a simple Ruby-based server supplied which would make a good
+starting point for a more featureful event-viewer.
 
-Running this will give a flavour, even outwith a CGI environment:
+Assuming you have Ruby, and the sinatra + redis gems installed you can
+launch the server with:
 
-    perl cgi-bin/events.cgi
+     cd ./viewer/
+     ./server
+
+This will launch a server which will process two URLs:
+
+*  http://localhost:9999/
+   *  The front-page of the application.
+*  http://localhost:9999/events/
+   *  Return a JSON array of hashes, corresponding to each message.
+
+The front-page uses jQuery to dyanmically load the JSON array and display it.
 
 
 Problems
