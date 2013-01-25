@@ -58,7 +58,7 @@ This will launch a server which will process two URLs:
 *  http://localhost:9999/events/
    *  Return a JSON array of hashes, corresponding to each message.
 
-The front-page uses jQuery to dyanmically load the JSON array and display it.  You
+The front-page uses jQuery to dynamically load the JSON array and display it.  You
 can see [a screenshot here](https://raw.github.com/skx/dashboard/master/viewer/screenshot.png).
 
 
