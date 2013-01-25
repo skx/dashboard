@@ -1,0 +1,73 @@
+#!/usr/bin/ruby1.8
+
+require 'rubygems'
+require 'redis'
+require 'sinatra/base'
+require 'json'
+
+
+#
+#
+#
+class DashboardViewer < Sinatra::Base
+
+  #
+  # Configurate Sinatra
+  #
+  configure do
+    set :environment, :production
+    set :public_folder, File.dirname( __FILE__ ) + "/public"
+    set :sessions, false
+    set :bind, 'localhost'
+    set :port, 9999
+  end
+
+  #
+  # The redis handle
+  #
+  attr_reader :storage
+
+
+
+  #
+  # Constructor
+  #
+  def initialize
+    @storage = Redis.new()
+  end
+
+
+  #
+  # Routing follows
+  #
+  get '/' do
+     send_file File.join(settings.public_folder, 'index.html')
+  end
+
+  get '/events/?' do
+     tmp = Array.new()
+
+     @storage.lrange( "dashboard", 0, 100 ).each do |line|
+
+       if ( line =~ /^([^#]+)#([^#]+)#(.*)$/ )
+           h = {}
+           h[:ip] = $1.dup
+           h[:date] = $2.dup
+           h[:msg]=$3.dup
+           tmp << h
+       end
+     end
+     tmp.to_json()
+  end
+
+end
+
+#
+# Launch the application
+#
+if __FILE__ == $0
+  DashboardViewer.run!
+end
+
+
+
