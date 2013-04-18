@@ -65,7 +65,7 @@ can see [a screenshot here](https://raw.github.com/skx/dashboard/master/viewer/s
 Problems
 --------
 
-Please report an issue via the github repository:
+Please report any issue via the github repository:
 
 * https://github.com/skx/dashboard
 
