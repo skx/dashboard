@@ -8,7 +8,7 @@ we cap the events to the the most recent 1000.
 Submission is handled via [node.js](http://nodejs.org), and storage is handled
 by [Redis](http://redis.io/).
 
-This server was discussed in the article [Building a simple dashboard with redis and node.js ](http://www.debian-administration.org/article/682).
+This server was discussed in the article [Building a simple dashboard with redis and node.js ](http://www.debian-administration.org/articles/682).
 
 
 
